@@ -2,7 +2,6 @@ package BlockCat.battlemc.grenade;
 
 import java.util.logging.Logger;
 
-import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,7 +22,7 @@ public class Grenade extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		pm = this.getServer().getPluginManager();
-		pm.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Event.Priority.Highest, this);
+		pm.registerEvents(playerListener, this);
 		
 	}
 

@@ -1,23 +1,20 @@
 package BlockCat.battlemc.grenade;
 
-import net.minecraft.server.Block;
-
-import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerListener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
 
 
-public class GrenadePlayerlistener extends PlayerListener{
+public class GrenadePlayerlistener implements Listener{
 
 
 	
