@@ -1,5 +1,6 @@
 package BlockCat.battlemc.grenade;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -34,16 +35,18 @@ public class GrenadePlayerlistener implements Listener{
 		if(perms && event.getMaterial() == Material.TNT && event.getAction() == Action.LEFT_CLICK_AIR){
 			entity = world.spawn(handLocation, TNTPrimed.class);
 			entity.setVelocity(direction.multiply(speedFactor));
-			player.getInventory().removeItem(new ItemStack(Material.TNT , 1 ));
+			if (player.getGameMode() != GameMode.CREATIVE){
+				player.getInventory().removeItem(new ItemStack(Material.TNT , 1 ));
+			}
 			//((TNTPrimed) entity).setFuseTicks(plugin.getCannon(player).getFuse());
 		}		
 	}
-	
+
 	@EventHandler
 	public void onPlayerCommandPreprocess (PlayerCommandPreprocessEvent event) {
-		
+
 		if (event.getMessage().equalsIgnoreCase("/grenade"))
-		throwGrenade(event.getPlayer());
+			throwGrenade(event.getPlayer());
 		return;
 	}
 
